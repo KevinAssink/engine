@@ -9,9 +9,10 @@ canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
 
-let myPoint = new Point(500,200.,20, "red");
-myPoint.draw(context);
-let myPoint2 = new Point(600,200,30,"green");
-myPoint2.draw(context);
-let myPoint3 = new Point(400,200,40,"yellow");
-myPoint3.draw(context);
+let circles = [];
+for (let i=0; i<100;i++){
+  let myPoint = new Point(getRandomInt(0, width),getRandomInt(0, height),20, "red");
+  myPoint.draw(context);
+
+ circles.push(myPoint);
+}
