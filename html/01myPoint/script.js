@@ -8,7 +8,6 @@ canvas.width = width;
 canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
-
 let circles = [];
 for (let i=0; i<100;i++){
   let myPoint = new Point(getRandomInt(0, width),getRandomInt(0, height),20, "red");
