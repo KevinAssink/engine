@@ -8,10 +8,11 @@ canvas.width = width;
 canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
-let circles = [];
-for (let i=0; i<100;i++){
-  let myPoint = new Point(getRandomInt(0, width), getRandomInt(0, height),20, "red");
-  myPoint.draw(context);
-
- circles.push(myPoint);
+let myPoint = new Point(200, 200, 50, "red")
+function animate (){
+    context.clearRect(0,0, width, height);
+    myPoint.draw(context)
 }
+
+
+setInterval(animate,10);
