@@ -10,18 +10,19 @@ canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
 
-let img, img2, angle;
+let img,angle,img2,x;
+x = 0;
 
 img = new Image();
 img.src = "img/cog.png";
 
 img2 = new Image();
-img2.src = "img/cog2.png"
+img2.src = "img/landscape.jpg"
 
 
 angle = 0.1;
 
-img.addEventListener('load',()=>{
+img2.addEventListener('load',()=>{
   setInterval(animate,10)
 })
 
@@ -29,22 +30,15 @@ img2.addEventListener('load',()=>{
   setInterval(animate,10)
 })
 
-function animate (){
+function animate(){
   context.clearRect(0,0,width,height);
+  context.drawImage(img2,0,0,width,height);
   context.save();
-  context.translate(300,300);
-  context.rotate(angle)
+  context.translate(x,300);
+  context.rotate(angle);
+
   context.drawImage(img,-150,-150,300,300);
   context.restore();
   angle += 0.01;
-}
-
-function animate(){
-  context.clearRect(0,0,width,height);
-  context.save();
-  context.translate(600,600);
-  context.rotate(angle);
-  context.drawImage(img2,-150,-150,300,300);
-  context.restore();
-  angle += 0.005;
+  x+=1;
 }
