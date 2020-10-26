@@ -17,8 +17,13 @@ spriteSheet.src = "img/tanksheet.png";
 gTank = {};
 gTank.animationArray = [1,2,3,4,5,6,7,8];
 gTank.index = 0;
+
+
+
 gTank.draw = function() {
-  context.drawImage(spriteSheet,gTank.animationArray[gTank.index] * 84,0,84,84,100,100,84,84);
+    gTank.sx = gTank.animationArray[gTank.index]%8 *84;
+    gTank.sy = Math.floor(gTank.animationArray[gTank.index]/8)*84;
+    context.drawImage(spriteSheet,gTank.sx,gTank.sy,84,84,100,100,84,84);
 }
 
 spriteSheet.addEventListener('load',()=>{
@@ -26,15 +31,15 @@ sw = spriteSheet.witdh/8;
 sh = spriteSheet.height/4;
 //console.log(spriteSheet.width, spriteSheet.heigt)
 //context.drawImage(spriteSheet,0,0);
-setInterval(animate,1000);
+setInterval(animate,100);
 });
 
 function animate(){
   context.clearRect(0,0,width,height);
   gTank.draw();
   gTank.index += 1;
-  if(gTank.index >= gTank.animationArray.length-1){
-    gTank.index = 1;
+  if(gTank.index >= gTank.animationArray.length){
+    gTank.index = 0;
   }
   console.log(gTank.index)
 }
